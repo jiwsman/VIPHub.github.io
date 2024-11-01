@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free VIP Gaming Access</title>
+    <style>
+        :root {
+            --primary: #0f0524;
+            --secondary: #1a0c2c;
+            --accent: #ff0055;
+            --neon: #00ffff;
+            --text: #ffffff;
+            --gradient: linear-gradient(135deg, #1a0c2c 0%, #4a1259 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', sans-serif;
+            background: var(--primary);
+            color: var(--text);
+            line-height: 1.6;
+            background: var(--gradient);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 60px 20px;
+            background: linear-gradient(rgba(15, 5, 36, 0.9), rgba(26, 12, 44, 0.9)),
+                        url('data:image/svg+xml,<svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><rect width="20" height="20" fill="none"/><circle cx="10" cy="10" r="1" fill="rgba(255,0,85,0.2)"/></svg>');
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, var(--accent) 0%, transparent 100%);
+            opacity: 0.1;
+            animation: glow 3s infinite;
+        }
+
+        @keyframes glow {
+            0% { opacity: 0.1; }
+            50% { opacity: 0.2; }
+            100% { opacity: 0.1; }
+        }
+
+        h1 {
+            font-size: 3.5em;
+            margin-bottom: 20px;
+            text-shadow: 0 0 10px var(--accent);
+            font-weight: 800;
+        }
+
+        .scarcity {
+            font-size: 1.5em;
+            color: var(--accent);
+            margin: 20px 0;
+            font-weight: bold;
+            text-shadow: 0 0 5px var(--accent);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        .cta-button {
+            background: var(--accent);
+            color: white;
+            padding: 20px 50px;
+            border: none;
+            border-radius: 35px;
+            font-size: 1.4em;
+            cursor: pointer;
+            text-transform: uppercase;
+            font-weight: bold;
+            letter-spacing: 2px;
+            box-shadow: 0 0 20px var(--accent);
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(
+                transparent,
+                rgba(255, 255, 255, 0.3),
+                transparent
+            );
+            transform: rotate(45deg);
+            animation: shine 3s infinite;
+        }
+
+        @keyframes shine {
+            0% { transform: translateX(-100%) rotate(45deg); }
+            100% { transform: translateX(100%) rotate(45deg); }
+        }
+
+        .cta-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 30px var(--accent);
+        }
+
+        .timer {
+            font-size: 2.5em;
+            margin: 30px 0;
+            color: var(--neon);
+            text-shadow: 0 0 10px var(--neon);
+            font-family: 'Courier New', monospace;
+            font-weight: bold;
+        }
+
+        .social-proof {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin: 60px 0;
+        }
+
+        .proof-item {
+            background: rgba(255, 0, 85, 0.1);
+            padding: 30px;
+            border-radius: 20px;
+            text-align: center;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 0, 85, 0.2);
+            transition: transform 0.3s;
+        }
+
+        .proof-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .proof-item h3 {
+            font-size: 2em;
+            color: var(--neon);
+            margin-bottom: 10px;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .feature {
+            background: rgba(0, 255, 255, 0.05);
+            padding: 30px;
+            border-radius: 20px;
+            text-align: center;
+            border: 1px solid rgba(0, 255, 255, 0.1);
+            transition: all 0.3s;
+        }
+
+        .feature:hover {
+            transform: translateY(-5px);
+            background: rgba(0, 255, 255, 0.1);
+        }
+
+        .feature h3 {
+            color: var(--accent);
+            margin-bottom: 15px;
+            font-size: 1.5em;
+        }
+
+        @media (max-width: 768px) {
+            .hero { padding: 40px 10px; }
+            .feature-grid { grid-template-columns: 1fr; }
+            h1 { font-size: 2.5em; }
+        }
+    </style>
+</head>
+<body>
+    <div class="hero">
+        <div class="container">
+            <h1>VIP Gaming Experience</h1>
+            <div class="timer" id="timer">10:00</div>
+            <div class="scarcity" id="scarcity">Hurry! Only 10 VIP Slots Left!</div>
+            <p style="font-size: 1.2em; margin-bottom: 30px;">Limited VIP Access Available</p>
+            <a href="/country_selection.html">              
+              <button class="cta-button">Get Exclusive Access</button>
+            </a>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="social-proof">
+            <div class="proof-item">
+                <h3>25K+</h3>
+                <p>Active Players</p>
+            </div>
+            <div class="proof-item">
+                <h3>4.9/5</h3>
+                <p>Player Rating</p>
+            </div>
+            <div class="proof-item">
+                <h3>VIP</h3>
+                <p>Premium Access</p>
+            </div>
+        </div>
+
+        <div class="feature-grid">
+            <div class="feature">
+                <h3>Exclusive Content</h3>
+                <p>Access premium features and special events</p>
+            </div>
+            <div class="feature">
+                <h3>Unlimited Access</h3>
+                <p>Play anytime, anywhere</p>
+            </div>
+            <div class="feature">
+                <h3>Priority Support</h3>
+                <p>24/7 VIP assistance</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Timer functionality
+        function startTimer(duration, display) {
+            let timer = duration, minutes, seconds;
+            setInterval(function () {
+                minutes = parseInt(timer / 60, 10);
+                seconds = parseInt(timer % 60, 10);
+                minutes = minutes < 10 ? "0" + minutes : minutes;
+                seconds = seconds < 10 ? "0" + seconds : seconds;
+                display.textContent = minutes + ":" + seconds;
+                if (--timer < 0) {
+                    timer = duration;
+                }
+            }, 1000);
+        }
+
+        // Scarcity functionality
+        function updateScarcity() {
+            const scarcityElement = document.getElementById('scarcity');
+            let currentSlots = 10;
+
+            setTimeout(() => {
+                currentSlots = 8;
+                scarcityElement.innerHTML = `Hurry! Only ${currentSlots} VIP Slots Left!`;
+            }, 10000);
+
+            setTimeout(() => {
+                currentSlots = 7;
+                scarcityElement.innerHTML = `Hurry! Only ${currentSlots} VIP Slots Left!`;
+            }, 30000);
+
+            setTimeout(() => {
+                currentSlots = 5;
+                scarcityElement.innerHTML = `Hurry! Only ${currentSlots} VIP Slots Left!`;
+            }, 100000);
+
+            setTimeout(() => {
+                currentSlots = 4;
+                scarcityElement.innerHTML = `Last VIP Slot Remaining!`;
+            }, 1000000);
+        
+
+            setTimeout(() => {
+                currentSlots = 3;
+                scarcityElement.innerHTML = `Last VIP Slot Remaining!`;
+            }, 3000000);
+        
+            setTimeout(() => {
+                currentSlots = 1;
+                scarcityElement.innerHTML = `Last VIP Slot Remaining!`;
+            }, 10000000);
+        
+
+        }
+
+        window.onload = function () {
+            let tenMinutes = 60 * 10,
+                display = document.querySelector('#timer');
+            startTimer(tenMinutes, display);
+            updateScarcity();
+        };
+    </script>
+</body>
+</html>
